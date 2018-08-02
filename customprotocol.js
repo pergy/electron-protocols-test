@@ -6,7 +6,7 @@ const fs = require('fs')
 // screws up incoming request.url wtf
 
 app.once('ready', () => {
-  protocol.c, (request, callback) => {
+  protocol.registerHttpProtocol('test', (request, callback) => {
     console.log('test http protocol called with', request.url)
     request.url = request.url.indexOf('.html') < 0
       ? request.url.replace(/^test:\/\//i, 'testfile://')
@@ -52,6 +52,8 @@ app.once('ready', () => {
   })
   let win = new BrowserWindow()
   const testPath = path.normalize(path.resolve(__dirname, 'test.html'))
+
   win.loadURL(`test://${testPath}`)
+  // Also OK with win.loadURL(`testfile://${testPath}`)
   // win.webContents.openDevTools({mode: 'detach'})
 })
