@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+      body {
+        background-size:     contain;
+        background-repeat:   no-repeat;
+        background-position: center center;
+        background-color:    #fff;
+      }
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      const src = window.location.hash.substr(5)
+      document.body.style.backgroundImage = `url('file://${src}')`;
+    </script>
+  </body>
+</html>
